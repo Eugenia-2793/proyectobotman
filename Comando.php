@@ -163,16 +163,16 @@ class Comandos extends Conversation
                    <b>  git remote prune origin ');
 
                 }elseif ($answer->getValue() == '11') {
-                    //$this->say('1');
+                    $this->say('Git branch');
                 }elseif ($answer->getValue() == '12') {
-                    //$this->say('1');
+                    $this->say('Git tag');
                 }
                 elseif ($answer->getValue() ==  '13') {
-                    //$this->say('1');
+                    $this->say('Git rebase');
                 }elseif ($answer->getValue() == '14') {
-                    //$this->say('1');
+                    $this->say('Otros');
                 }elseif ($answer->getValue() == '15') {
-                    //$this->say('1');
+                    $this->say('Fork');
                 }
 
 
