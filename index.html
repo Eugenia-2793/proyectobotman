@@ -1,9 +1,44 @@
- <script src="widget.js"></script>
-	  <script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BotMan Widget Demo</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
+    <style>
+        body {
+            font-family: "Varela Round", sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background: radial-gradient(#57bfc7, #45a6b3); */
+            background-color: #93acbb;
+            background-image: url("img/fondo-bender.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
         var botmanWidget = {
+            chatServer: 'botman.php',
             frameEndpoint: 'chat.html',
-            introMessage: 'Hola, soy Botman creado por M&E',
-            chatServer : 'botman.php', 
-            title: 'BotMan'
-        }; 
+            title: 'Bender',
+            bubbleAvatarUrl: URL = ("img/icon-bender.png"), //logo de la burbuja
+        };
     </script>
+    <script id="botmanWidget" src='widget.js'></script>
+</body>
+
+</html>

@@ -37,7 +37,7 @@ class Comandos extends Conversation
         $this->ask($preguntas, function ($answer) {
             //pregunta a traves de los botones y el usuario responde
             if ($answer->isInteractiveMessageReply()) {
-                if ($answer->getValue() == '1') {     
+                if ($answer->getValue() == '1') {
                     $this->say(' 
 
                     Configurar Nombre que salen en los commits <br>
@@ -60,14 +60,14 @@ class Comandos extends Conversation
                     "Texto que identifique por que se hizo el commit"  subimos al repositorio<br>
                              <b>git push origin master</b><br>
                 ');
-                }elseif ($answer->getValue() == '3') {
+                } elseif ($answer->getValue() == '3') {
                     $this->say('
 
                     Clonamos el repositorio de github o bitbucket <br>
                              <b>git clone url  </b> <br>
                     Clonamos el repositorio de github o bitbucket ????? <br>
                              <b>git clone url git-demo  </b><br>');
-                }elseif ($answer->getValue() == '4') {
+                } elseif ($answer->getValue() == '4') {
                     $this->say('
                     
                     Añadimos todos los archivos para el commit<br>
@@ -83,7 +83,7 @@ class Comandos extends Conversation
                     Añadimos todos los archivos dentro de un directorios<br>
                              <b> git add docs/</b>
                     ');
-                }elseif ($answer->getValue() == '5') {
+                } elseif ($answer->getValue() == '5') {
                     $this->say('
                     
                     Cargar en el HEAD los cambios realizados <br/>
@@ -96,7 +96,7 @@ class Comandos extends Conversation
                        <b> git commit --amend -m "Texto que identifique por que se hizo el commit"</b><br/>
                     
                     ');
-                }elseif ($answer->getValue() == '6') {
+                } elseif ($answer->getValue() == '6') {
                     $this->say('
                     Subimos al repositorio                     <br>
                        <b> git push origien branch </b>        <br>
@@ -104,7 +104,7 @@ class Comandos extends Conversation
                        <b> git push --tags       </b>          <br>
                     
                     ');
-                }elseif ($answer->getValue() == '7') {
+                } elseif ($answer->getValue() == '7') {
                     $this->say('
                     
                     Muestra los logs de los commits <br>
@@ -114,14 +114,14 @@ class Comandos extends Conversation
                     Muestra graficos de los commits     <br>
                        <b> git log --oneline --graph    </b>   <br>
                     ');
-                }elseif ($answer->getValue() == '8') {
+                } elseif ($answer->getValue() == '8') {
                     $this->say('
                     
                     Muestra los cambios realizados a un archivo <br>
                         <b> git diff </b> <br>
                         <b> git diff --staged </b> <br>
                     ');
-                }elseif ($answer->getValue() == '9') {
+                } elseif ($answer->getValue() == '9') {
                     $this->say('
                     Saca un archivo del commit       <br>
                        <b> git reset HEAD <archivo> </b>       <br>
@@ -140,7 +140,7 @@ class Comandos extends Conversation
                        <b> git reset --hard commit_sha </b>  <br>
                     
                     ');
-                }elseif ($answer->getValue() == '10') {
+                } elseif ($answer->getValue() == '10') {
                     $this->say('
                     
                 Agregar repositorio remoto<br>
@@ -161,24 +161,20 @@ class Comandos extends Conversation
                 Limpiar todos los branches eliminados <br/>
                 
                    <b>  git remote prune origin ');
-
-                }elseif ($answer->getValue() == '11') {
+                } elseif ($answer->getValue() == '11') {
                     $this->say('Git branch');
-                }elseif ($answer->getValue() == '12') {
+                } elseif ($answer->getValue() == '12') {
                     $this->say('Git tag');
-                }
-                elseif ($answer->getValue() ==  '13') {
+                } elseif ($answer->getValue() ==  '13') {
                     $this->say('Git rebase');
-                }elseif ($answer->getValue() == '14') {
+                } elseif ($answer->getValue() == '14') {
                     $this->say('Otros');
-                }elseif ($answer->getValue() == '15') {
+                } elseif ($answer->getValue() == '15') {
                     $this->say('Fork');
                 }
-
-
             } else {
                 $this->say('Seleccione una opcion');
-                $this->repeat();//se repite esta funcion
+                $this->repeat(); //se repite esta funcion
             }
         });
     }

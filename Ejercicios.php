@@ -27,21 +27,21 @@ class Ejercicios extends Conversation
         $this->ask($preguntas, function ($answer) {
             //pregunta a traves de los botones y el usuario responde
             if ($answer->isInteractiveMessageReply()) {
-                if ($answer->getValue() == 'mvc') {     
-                    $this->say('Trabajo practico Nro1 (Modelo/Vista/Control) <a href=\'#\'>ver</a>');
+                if ($answer->getValue() == 'mvc') {
+                    $this->say('Trabajo práctico Nro1 (Modelo/Vista/Control) <a href=\'http://localhost/PWD2021/TP1/vista/tp1/1/ejer1TP1.php\' target="_blank">ver</a>');
                 } elseif ($answer->getValue() == 'bt') {
-                    $this->say('Trabajo practico Nro2 (Bootstrap) <a href=\'#\'>ver</a>');
+                    $this->say('Trabajo práctico Nro2 (Bootstrap) <a href=\'http://localhost/PWD2021/TP1/vista/tp2/3/ejer3TP2.php\' target="_blank">ver</a>');
                 } elseif ($answer->getValue() == 'files') {
-                    $this->say('Trabajo practico Nro3 (Subir Aarchivos) <a href=\'#\'>ver</a>');
+                    $this->say('Trabajo práctico Nro3 (Subir Aarchivos) <a href=\'http://localhost/PWD2021/TP1/vista/tp3/1/ejer1TP3.php\' target="_blank">ver</a>');
                 } elseif ($answer->getValue() == 'ormabm') {
-                    $this->say('Trabajo practico Nro4 (ORM - ABM) <a href=\'#\'>ver</a>');
+                    $this->say('Trabajo práctico Nro4 (ORM - ABM) <a href=\'http://localhost/PWD2021/TP1/vista/tp4/1/verAutos.php\' target="_blank">ver</a>');
                 } elseif ($answer->getValue() == 'syc') {
-                    $this->say('Trabajo practico Nro5 (Sessions and Cookies) <a href=\'#\'>ver</a>');
+                    $this->say('Trabajo práctico Nro5 (Sessions and Cookies) <a href=\'http://localhost/PWD2021/TP1/vista/tp5/1/listarUsuarios.php\' target="_blank">ver</a>');
                 }
             } else {
                 //el usuario no respondio a traves de los botones dados, si queremos leer ambas, solo sacamos la condicion
-                $this->say('Seleccione una opcion');
-                $this->repeat();//se repite esta funcion
+                $this->say('Seleccione una opción');
+                $this->repeat(); //se repite esta funcion
             }
         });
     }

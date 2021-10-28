@@ -24,32 +24,38 @@ $botman->fallback(function ($bot) {
 });
 
 //hears es para escuchar lo que dice el usuario y compararlo con el primer parametro
-$botman->hears('hola(.*)|buen(.*)', function ($bot) { 
+$botman->hears('hola(.*)|buen(.*)', function ($bot) {
     $mensaje = $bot->getMessage();
     if (preg_match("/como estas/", $mensaje->getText())) {
         $bot->reply('gracias por preguntarme');
     }
     //startConversation da la responsabilidad a la clase que se encuentra en el parametro para que responda
-   $bot->startConversation(new Hablar());
+    $bot->startConversation(new Hablar());
 });
 
 //---------------------------------AYUDA
-$botman->hears('(.*)ayuda(.*)|(.*)no ent(.*)|(.*)no se(.*)|(.*)guiar(.*)', 
-   function ($bot) {
-   $bot->startConversation(new Ayuda());
-})->skipsConversation();
+$botman->hears(
+    '(.*)ayuda(.*)|(.*)no ent(.*)|(.*)no se(.*)|(.*)guiar(.*)',
+    function ($bot) {
+        $bot->startConversation(new Ayuda());
+    }
+)->skipsConversation();
 
 //--------------------------------TRABAJOS PRACTICOS
-$botman->hears('(.*)ejercicios(.*)|(.*)tp(.*)|(.*)pwd(.*)', 
-function ($bot) { //por aca ingresa el texto del usuario
-  $bot->startConversation(new Ejercicios());
-});
+$botman->hears(
+    '(.*)ejercicios(.*)|(.*)tp(.*)|(.*)pwd(.*)',
+    function ($bot) { //por aca ingresa el texto del usuario
+        $bot->startConversation(new Ejercicios());
+    }
+);
 
 //--------------------------------COMANDOS
-$botman->hears('(.*)comandos(.*)|(.*)git(.*)', 
-function ($bot) { //por aca ingresa el texto del usuario
- $bot->startConversation(new Comandos());
-});
+$botman->hears(
+    '(.*)comandos(.*)|(.*)git(.*)',
+    function ($bot) { //por aca ingresa el texto del usuario
+        $bot->startConversation(new Comandos());
+    }
+);
 
 //--------------------------------SALIR
 $botman->hears('(.*)chau(.*)|me voy(.*)|adios(.*)|nos vemos(.*)|gracias|nada', function ($bot) {

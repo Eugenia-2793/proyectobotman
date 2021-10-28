@@ -19,7 +19,6 @@ class Hablar extends Conversation
             if (preg_match("/vos?/", $respuesta)) {
                 //preg_match compara expresion regular, si $respuesta trae una subcadena igual a 'vos?' entonces ingresa
                 $this->say('Bien, gracias por preguntarme');
-
             } elseif (preg_match("/\W/", $respuesta)) {
                 $this->say('No me agradan los caracteres especiales <br>');
                 return $this->repeat();
@@ -28,9 +27,9 @@ class Hablar extends Conversation
             $this->say('que desea realizar?');
         });
     }
-    
+
     //ejecuta la clase y llama a la funcion charla
-     
+
     public function run()
     {
         $this->charla();
