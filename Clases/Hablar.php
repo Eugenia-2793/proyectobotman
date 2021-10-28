@@ -6,7 +6,7 @@ class Hablar extends Conversation
 {
     protected $respuesta;
 
-    /*
+    /*Es un objeto de la clase
      Say, ask, repeat, son propios  de la clase conversation
      ask, es para realizar una pregunta al usuario
      say, es para decirle alguna respuesta al usuario
@@ -19,7 +19,7 @@ class Hablar extends Conversation
             if (preg_match("/vos?/", $respuesta)) {
                 //preg_match compara expresion regular, si $respuesta trae una subcadena igual a 'vos?' entonces ingresa
                 $this->say('Bien, gracias por preguntarme');
-            } elseif (preg_match("/\W/", $respuesta)) {
+            } elseif (preg_match("/\W/", $respuesta)) {   //\W:caracteres especiales
                 $this->say('No me agradan los caracteres especiales <br>');
                 return $this->repeat();
             }

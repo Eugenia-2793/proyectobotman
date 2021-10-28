@@ -18,18 +18,19 @@ $adapter = new FilesystemAdapter();
 $config = [];
 $botman = BotManFactory::create($config, new SymfonyCache($adapter));
 
+//Si no coincide con ningun 'hears' entra en fallback
 $botman->fallback(function ($bot) {
-    $mensaje = $bot->getMessage();
-    $bot->reply('No comprendo \'' . $mensaje->getText() . '\', sea más específico');
+    $mensaje = $bot->getMessage(); //obtenemos el objeto mensaje del usuario
+    $bot->reply('No comprendo \'' . $mensaje->getText() . '\', sea más específico');  // respuesta al usuario
 });
 
-//hears es para escuchar lo que dice el usuario y compararlo con el primer parametro
+//hears: para escuchar lo que dice el usuario y compararlo con el primer parametro
 $botman->hears('hola(.*)|buen(.*)', function ($bot) {
     $mensaje = $bot->getMessage();
     if (preg_match("/como estas/", $mensaje->getText())) {
         $bot->reply('gracias por preguntarme');
     }
-    //startConversation da la responsabilidad a la clase que se encuentra en el parametro para que responda
+    //startConversation da a la clase para que responda Ej Hablar
     $bot->startConversation(new Hablar());
 });
 
@@ -40,11 +41,14 @@ $botman->hears(
         $bot->startConversation(new Ayuda());
     }
 )->skipsConversation();
+/*skipsConversation  se realiza un salto a ese llamado y al finalizar
+    continua en donde se encontraba antes de la coincidencia*/
+
 
 //--------------------------------TRABAJOS PRACTICOS
 $botman->hears(
     '(.*)ejercicios(.*)|(.*)tp(.*)|(.*)pwd(.*)',
-    function ($bot) { //por aca ingresa el texto del usuario
+    function ($bot) { 
         $bot->startConversation(new Ejercicios());
     }
 );
@@ -52,7 +56,7 @@ $botman->hears(
 //--------------------------------COMANDOS
 $botman->hears(
     '(.*)comandos(.*)|(.*)git(.*)',
-    function ($bot) { //por aca ingresa el texto del usuario
+    function ($bot) { 
         $bot->startConversation(new Comandos());
     }
 );
@@ -61,9 +65,8 @@ $botman->hears(
 $botman->hears('(.*)chau(.*)|me voy(.*)|adios(.*)|nos vemos(.*)|gracias|nada', function ($bot) {
     $bot->reply('Un placer, hasta pronto!');
 })->stopsConversation();
-/*stopConversation, realiza un salto a este llamado sin importar donde este pero
-la diferencia es que se detiende el hilo de conversacion*/
-
+/*stopConversation, realiza un salto a este llamado y se detiende el hilo de conversacion*/
 
 //--------------------------------ESCUCHAR RESPUESTA
 $botman->listen();
+//listen: es para que botman este atento a los ingresos de mensaje
