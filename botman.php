@@ -7,10 +7,10 @@ use BotMan\BotMan\BotManFactory;
 use BotMan\BotMan\Cache\SymfonyCache;
 use BotMan\BotMan\Drivers\DriverManager;
 
-require_once('Hablar.php');
-require_once('Ayuda.php');
-require_once('Ejercicios.php');
-require_once('Comando.php');
+require_once('Clases/Hablar.php');
+require_once('Clases/Ayuda.php');
+require_once('Clases/Ejercicios.php');
+require_once('Clases/Comando.php');
 
 DriverManager::loadDriver(\BotMan\Drivers\Web\WebDriver::class);
 
