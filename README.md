@@ -41,7 +41,6 @@ BotMan es una librería de PHP que está diseñada para simplificar la tarea de 
 ### Requisitos 📚
 
 - PHP >= 7.1.3
-- Para BotMan Studio, consulte los [requisitos de Laravel](https://laravel.com/docs/5.5/installation#server-requirements)
 - Composer
 
 ### Paso 1
