@@ -12,7 +12,10 @@ class Comandos extends Conversation
      * preguntamos si la respuesta fue de forma interactiva (en este caso si respondio por botones)
      * y sino le insistimos que responda con botones, si es interactiva leemos el valor de la respuesta 
      * y le damos intrucciones, para href si no usamos target='_blank' se carga la pagina dentro del chat, probar jaja
+     *pagina de la info de comandos: https://gist.github.com/dasdo/9ff71c5c0efa037441b6
      */
+    
+
     public function run()
     {
         //creamos una pregunta que contendra botones
@@ -162,15 +165,80 @@ class Comandos extends Conversation
                 
                    <b>  git remote prune origin ');
                 } elseif ($answer->getValue() == '11') {
-                    $this->say('Git branch');
+                    $this->say('
+                    Crea un branch <br/>
+
+                    <b> git branch <nameBranch> </b> <br/>
+                Lista los branches <br/>
+                
+                    <b> git branch <br/> </b>
+                Comando -d elimina el branch y lo une al master <br/>
+                
+                    <b> git branch -d nameBranch <br/></b>
+                Elimina sin preguntar <br/>
+                
+                    <b> git branch -D nameBranch </b>');
                 } elseif ($answer->getValue() == '12') {
-                    $this->say('Git tag');
+                    $this->say('
+                Muestra una lista de todos los tags<br/>
+
+                    <b> git tag<br/></b>
+                Crea un nuevo tags<br/>
+                
+                    <b> git tag -a <verison> - m "esta es la versión x"<br/></b>');
                 } elseif ($answer->getValue() ==  '13') {
-                    $this->say('Git rebase');
+                    $this->say('Los rebase se usan cuando trabajamos con branches esto hace que
+                     los branches se pongan al día con el master sin afectar al mismo<br/>
+
+                    Une el branch actual con el mastar, esto no se puede ver como un merge<br/>
+                    
+                        <b> git rebase<br/></b>
+                    Cuando se produce un conflicto no das las siguientes opciones:<br/>
+                    cuando resolvemos los conflictos --continue continua la secuencia del rebase donde se pauso<br/>
+                    
+                        <b> git rebase --continue <br/></b>
+                    Omite el conflicto y sigue su camino<br/>
+                    
+                        <b> git rebase --skip<br/></b>
+                    Devuelve todo al principio del rebase<br/>
+                    
+                        <b> git reabse --abort<br/></b>
+                    Para hacer un rebase a un branch en especifico<br/>
+                    
+                        <b> git rebase nameBranch <br/></b>');
                 } elseif ($answer->getValue() == '14') {
-                    $this->say('Otros');
+                    $this->say('Lista un estado actual del repositorio con lista de archivos modificados o agregados <br/>
+
+                    <b> git status <br/></b>
+                Quita del HEAD un archivo y le pone el estado de no trabajado <br/>
+                
+                    <b> git checkout -- file <br/></b>
+                Crea un branch en base a uno online <br/>
+                
+                    <b> git checkout -b newlocalbranchname origin/branch-name <br/></b>
+                Busca los cambios nuevos y actualiza el repositorio <br/>
+                
+                    <b> git pull origin nameBranch <br/></b>
+                Cambiar de branch
+                
+                    <b> git checkout nameBranch/tagname <br/></b>
+                Une el branch actual con el especificado <br/>
+                
+                    <b> git merge nameBranch <br/></b>
+                Verifica cambios en el repositorio online con el local<br/>
+                
+                    <b> git fetch <br/></b>
+                Borrar un archivo del repositorio<br/>
+                
+                    <b> git rm archivo <br/></b> ');
                 } elseif ($answer->getValue() == '15') {
-                    $this->say('Fork');
+                    $this->say('Descargar remote de un fork <br/>
+
+                   <b> git remote add upstream url <br/></b>
+                Merge con master de un fork <br/>
+                
+                   <b> git fetch upstream <br/></b>
+                   <b> git merge upstream/master <br/></b>');
                 }
             } else {
                 $this->say('Seleccione una opcion');
